@@ -14,8 +14,8 @@ bot=ChatBot('chatbot',read_only =False,
                logic_adapters =[
                 {
                     'import_path': 'chatterbot.logic.BestMatch',
-                    #'default_response': 'Sorry,  i dont know what that means',
-                    #'maximum_similarity_threshold':0.95
+                    'default_response': 'Sorry,  for more details please get closer to schooling',
+                    'maximum_similarity_threshold':0.95
                 }
                 ])
 
@@ -23,26 +23,33 @@ bot=ChatBot('chatbot',read_only =False,
  
 
 list_to_train=[
-     
-     "hi",
-     "hi,there",
      "what's your name?",
      "i'm just a chatbot",
-     "what's your favorite foods",
-     "it's like cheese",
-     "what's your fav sport?",
-     "swimming",
-     "do you have a children?",
-     "no"
+     "Tell us about yourself",
+     "ESSFAR is the school of Applied Mathematics and Computer Science at the service of organizations and innovation.",
+     "What's the next school year?",
+     "The next school year starts in September for LECENCE level students and in October for Master students",
+     "Where do you stand?",
+     "Campus: Yaoundé Omnisport Mfandena, behind the tax office",
+     "What are your different trainings?"
+     "Initial training in 5 years (Master 2) after a scientific baccalaureate and Continuing education, ESSFAR Executive Education offers certified and tailor-made training in severals fields",
+     "Tell me about continuing education",
+     "Continuing education is based on 4 areas: Banking, Finance, Insurance and Risk Data Science,Information System and Digital Technologies,Leadership and Project Management",
+     "Tell me about initial training",
+     "The initial training in 5 years is based on the following business specialties: Actuarial, Statistics and Big Data, Financial Engineering, Information system",
+
+
 ]
 
 ChatterBotCorpusTrainer = ChatterBotCorpusTrainer(bot)
-#list_trainer = ListTrainer(bot)
-#list_trainer.train(list_to_train)
-ChatterBotCorpusTrainer.train('chatterbot.corpus.spanish')
+ChatterBotCorpusTrainer.train('chatterbot.corpus.english')
+list_trainer = ListTrainer(bot)
+list_trainer.train(list_to_train)
+
+
 
 def index(request):
-    return render(request,'chatApp_/index.html')
+    return render(request,'chatApp_/index1.html')
 
 def specific(request):
     return HttpResponse('this is a specific urls')

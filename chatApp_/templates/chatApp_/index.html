@@ -15,7 +15,18 @@
 <body>
     
 
-<h1>Chatbot app</h1>
+<!--<h1>Chatbot app</h1>-->
+<!---
+<section class="msger">
+    <header class="msg-header">
+        <div class="msger-header-title">
+            <i class="fas fa-bug"></i>Chatbot app<i class="fas fa-bug"></i>
+
+        </div>
+
+    </header>
+</section>
+-->
 
 <div>
     <div id ="chatbot">
@@ -37,8 +48,9 @@
         $('#textInput').val("");
 
         $('#chatbot').append(userHTML);
-
+        alert(1)
         $.get('/chatApp_/getResponse',{userMessage:userText}).done(function(data){
+           alert(2)
             var returnedMessage = "<p class ='botText'>chatbot:<span>"+data+"</span></p>";
             $('#chatbot').append(returnedMessage);
         })
